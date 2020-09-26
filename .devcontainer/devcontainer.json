@@ -36,12 +36,13 @@
 	"extensions": [
 		"GitHub.vscode-pull-request-github",
 		"MS-vsliveshare.vsliveshare",
-		"VisualStudioExptTeam.vscodeintellicode"
+		"VisualStudioExptTeam.vscodeintellicode",
+		"ms-python.python"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install -r /home/codespace/workspace/codespaces-playground/requirements.txt"
+	"postCreateCommand": "/opt/python/latest/bin/pip install -r /home/codespace/workspace/codespaces-playground/requirements.txt"
 }

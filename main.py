@@ -17,4 +17,5 @@ spark = (SparkSession.builder
     .config("spark.sql.hive.metastorePartitionPruning","true")
     .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2")
     .config("spark.speculation", "false")
+    .config("spark.sql.adaptive.enabled", "true")
     .getOrCreate())

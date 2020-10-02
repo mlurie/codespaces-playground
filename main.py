@@ -18,4 +18,6 @@ spark = (SparkSession.builder
     .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2")
     .config("spark.speculation", "false")
     .config("spark.sql.adaptive.enabled", "true")
+    .config("spark.sql.execution.arrow.pyspark.enabled", "true")
+    .config("spark.sql.execution.arrow.pyspark.fallback.enabled", "true")
     .getOrCreate())

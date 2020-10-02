@@ -9,6 +9,7 @@
 		"go.goroot": "/usr/local/go",
 		"go.toolsGopath": "/go/bin",
 		"python.pythonPath": "/opt/python/latest/bin/python",
+		"python.languageServer": "Microsoft",
 		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": true,
 		"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",

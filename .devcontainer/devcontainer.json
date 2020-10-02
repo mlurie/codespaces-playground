@@ -44,5 +44,5 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "/opt/python/latest/bin/pip install -r /home/codespace/workspace/codespaces-playground/requirements.txt"
+	"postCreateCommand": "/opt/python/latest/bin/python -m pip install -r /home/codespace/workspace/codespaces-playground/requirements.txt"
 }

@@ -1,2 +1,20 @@
 from pyspark.sql import SparkSession
 
+spark = (SparkSession.builder
+    .master("local[*]")
+    .appName("S3 Test")
+    .config("spark.jars.packages","org.apache.hadoop:hadoop-aws:3.2.1")
+    .config("spark.jars.packages","io.delta:delta-core_2.12:0.7.0")
+    .config("spark.delta.logStore.class","org.apache.spark.sql.delta.storage.S3SingleDriverLogStore")
+    .config("spark.sql.extensions","io.delta.sql.DeltaSparkSessionExtension")
+    .config("spark.sql.catalog.spark_catalog","org.apache.spark.sql.delta.catalog.DeltaCatalog")
+    .config("spark.hadoop.fs.s3a.committer.name","directory")
+    .config("spark.sql.sources.commitProtocolClass","org.apache.spark.internal.io.cloud.PathOutputCommitProtocol")
+    .config("spark.sql.parquet.output.committer.class","org.apache.spark.internal.io.cloud.BindingParquetOutputCommitter")
+    .config("spark.hadoop.parquet.enable.summary-metadata","false")
+    .config("spark.sql.parquet.mergeSchema","false")
+    .config("spark.sql.parquet.filterPushdown","true")
+    .config("spark.sql.hive.metastorePartitionPruning","true")
+    .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2")
+    .config("spark.speculation", "false")
+    .getOrCreate())

@@ -20,4 +20,6 @@ spark = (SparkSession.builder
     .config("spark.sql.adaptive.enabled", "true")
     .config("spark.sql.execution.arrow.pyspark.enabled", "true")
     .config("spark.sql.execution.arrow.pyspark.fallback.enabled", "true")
+    .config("spark.hadoop.fs.s3a.access.key", "")
+    .config("spark.hadoop.fs.s3a.secret.key", "")
     .getOrCreate())

@@ -3,8 +3,7 @@ from pyspark.sql import SparkSession
 spark = (SparkSession.builder
     .master("local[*]")
     .appName("S3 Test")
-    .config("spark.jars.packages","org.apache.hadoop:hadoop-aws:3.2.1")
-    .config("spark.jars.packages","io.delta:delta-core_2.12:0.7.0")
+    .config("spark.jars.packages","org.apache.hadoop:hadoop-aws:3.2.1,io.delta:delta-core_2.12:0.7.0")
     .config("spark.delta.logStore.class","org.apache.spark.sql.delta.storage.S3SingleDriverLogStore")
     .config("spark.sql.extensions","io.delta.sql.DeltaSparkSessionExtension")
     .config("spark.sql.catalog.spark_catalog","org.apache.spark.sql.delta.catalog.DeltaCatalog")
@@ -23,3 +22,5 @@ spark = (SparkSession.builder
     .config("spark.hadoop.fs.s3a.access.key", "")
     .config("spark.hadoop.fs.s3a.secret.key", "")
     .getOrCreate())
+
+spark.stop()
